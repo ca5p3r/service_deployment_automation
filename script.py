@@ -160,8 +160,10 @@ if __name__ == '__main__':
     # Get source db info
     connector(source_host, source_port, source_user, source_passwd, source_db)
     get_deployment_data(connection)
+    connection.cursor.close()
     connection.close()
     connector(target_host, target_port, target_user, target_passwd, target_db)
     get_max_val(connection)
     post_deployment_data(result, maxId)
+    connection.cursor.close()
     connection.close()
